@@ -1,0 +1,14 @@
+view,text,navigator,input,image,switch,switch-item,switch-view,router-view,
+page{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+page{
+    font-size: 28rpx;
+    color: #666;
+}
+image{
+    width: 1000%;
+    display: block;
+}

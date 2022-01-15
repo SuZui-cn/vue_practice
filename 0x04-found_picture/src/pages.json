@@ -1,0 +1,122 @@
+{
+	"pages": [ 
+		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/search/index",
+			"style": {
+				"navigationBarTitleText": "分类"
+			}
+		},
+		{
+			"path": "pages/mine/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+
+		{
+			"path": "pages/search/meinv/index",
+			"style": {
+				"navigationBarTitleText": "美女"
+			}
+		},
+		{
+			"path": "pages/search/car/index",
+			"style": {
+				"navigationBarTitleText": "汽车"
+			}
+		},
+		{
+			"path": "pages/search/dongman/index",
+			"style": {
+				"navigationBarTitleText": "动漫"
+			}
+		},
+		{
+			"path": "pages/search/fengjing/index",
+			"style": {
+				"navigationBarTitleText": "风景"
+			}
+		},
+		{
+			"path": "pages/search/movement/index",
+			"style": {
+				"navigationBarTitleText": "体育"
+			}
+		},
+		{
+			"path": "pages/search/word/index",
+			"style": {
+				"navigationBarTitleText": "文字"
+			}
+		},
+		{
+			"path": "pages/search/animal/index",
+			"style": {
+				"navigationBarTitleText": "明宠"
+			}
+		},
+		{
+			"path": "pages/search/star/index",
+			"style": {
+				"navigationBarTitleText": "明星风尚"
+			}
+		},
+		{
+			"path": "pages/search/gaoqing/index",
+			"style": {
+				"navigationBarTitleText": "4K"
+			}
+		},
+		{
+			"path": "pages/search/game/index",
+			"style": {
+				"navigationBarTitleText": "游戏"
+			}
+		},
+		{
+			"path": "pages/bqb/index",
+			"style": {
+				"navigationBarTitleText": "表情包专栏"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "视觉风暴",
+		"navigationBarBackgroundColor": "#94d6da",
+		"backgroundColor": "#94d6da"
+	},
+	"tabBar":{
+		"color":"#d9d6c3",
+		"selectedColor":"#f69c9f",
+		"backgroundColor":"#94d6da",
+		"position":"bottom",
+		"borderStyle":"black",
+		"list":[
+			{
+				"pagePath":"pages/home/index",
+				"text":"首页",
+				"iconPath":"./static/icon/shouye.png",
+				"selectedIconPath":"./static/icon/shouye1.png"
+			},
+			{
+				"pagePath":"pages/search/index",
+				"text":"分类",
+				"iconPath":"./static/icon/sousuo-tianchong.png",
+				"selectedIconPath":"./static/icon/sousuo-tianchong1.png"
+			},
+			{
+				"pagePath":"pages/mine/index",
+				"text":"我的",
+				"iconPath":"./static/icon/wode.png",
+				"selectedIconPath":"./static/icon/wode1.png"
+			}
+		]
+	}
+}

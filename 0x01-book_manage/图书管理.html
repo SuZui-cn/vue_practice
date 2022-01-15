@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .grid {
+        margin: auto;
+        width: 510px;
+        text-align: center;
+      }
+
+      .grid table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .grid th,
+      td {
+        padding: 10;
+        border: 1px dashed orange;
+        height: 35px;
+        line-height: 35px;
+      }
+
+      .grid th {
+        background-color: orange;
+      }
+
+      .grid .book {
+        padding-bottom: 10px;
+        padding-top: 5px;
+        background-color: #f3dcab;
+      }
+
+      .grid .book button {
+        float: right;
+        padding-right: 5px;
+      }
+
+      .grid .total {
+        height: 30px;
+        line-height: 30px;
+        background-color: #f3dcab;
+        border-top: 1px solid #c2d89a;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="grid">
+        <div>
+          <h1>图书管理</h1>
+          <div class="book">
+            <div>
+              <label> 编号： </label>
+              <input type="text" v-model="id" />
+              <label> 名称： </label>
+              <input type="text" v-model="name" />
+              <button @click="add()">提交</button>
+            </div>
+          </div>
+        </div>
+        <div class="total">
+          <span>图书总数：{{ total }}</span>
+          <span></span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>编号</th>
+              <th>名称</th>
+              <th>时间</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in books" :key="item.id">
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ new Date() | format }}</td>
+              <td>
+                <a href="#" @click="edit(item.id)">修改</a>
+                <span>|</span>
+                <a href="#" @click="del(item.id)">删除</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      // 过滤器:过滤时间格式
+      Vue.filter('format', (time) => time.getFullYear());
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          id: '',
+          name: '',
+          flag: false,
+          books: [
+            {
+              id: 1,
+              name: '《尚书》',
+              date: new Date(),
+            },
+            {
+              id: 2,
+              name: '《天工开物》',
+              date: new Date(),
+            },
+            {
+              id: 3,
+              name: '《本草纲目》',
+              date: new Date(),
+            },
+            {
+              id: 4,
+              name: '《史记》',
+              date: new Date(),
+            },
+            {
+              id: 5,
+              name: '《孙子兵法》',
+              date: new Date(),
+            },
+            {
+              id: 6,
+              name: '《论语》',
+              date: new Date(),
+            },
+            {
+              id: 7,
+              name: '《离骚》',
+              date: new Date(),
+            },
+            {
+              id: 8,
+              name: '《道德经》',
+              date: new Date(),
+            },
+          ],
+        },
+        methods: {
+          add() {
+            if (this.flag) {
+              for (var i = 1; i < this.books.length; i++) {
+                if (i === this.id) {
+                  this.books[i - 1].name = this.name;
+                }
+                this.flag = false;
+              }
+            } else {
+              if (
+                this.id == undefined ||
+                this.name == undefined ||
+                this.id == '' ||
+                this.name == ''
+              ) {
+                alert('编号和书名不能为空');
+              } else {
+                this.books.push({
+                  id: this.id,
+                  name: this.name,
+                  date: new Date(),
+                });
+              }
+            }
+          },
+          del(id) {
+            this.books = this.books.filter((item) => item.id != id);
+          },
+          edit(id) {
+            this.flag = true;
+            this.books.filter((item) => {
+              if (item.id === id) {
+                this.id = item.id;
+                this.name = item.name;
+              }
+            });
+          },
+        },
+        computed: {
+          total() {
+            return this.books.length;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
